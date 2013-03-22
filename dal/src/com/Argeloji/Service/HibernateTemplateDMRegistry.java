@@ -1,9 +1,11 @@
 package com.Argeloji.Service;
 
+import com.Argeloji.DataMapper.AdresHibernateDataMapper;
 import com.Argeloji.DataMapper.DersHibernateDataMapper;
 import com.Argeloji.DataMapper.DersSinifHibernateDataMapper;
 import com.Argeloji.DataMapper.KademeHibernateDataMapper;
 import com.Argeloji.DataMapper.SinifHibernateDataMapper;
+import com.Argeloji.Domain.Adres;
 import com.Argeloji.Domain.Ders;
 import com.Argeloji.Domain.DersSinif;
 import com.Argeloji.Domain.Kademe;
@@ -25,6 +27,7 @@ public class HibernateTemplateDMRegistry  extends AbstractDMRegistry {
 	add(Ders.class,new DersHibernateDataMapper(dao));
 	add(Sinif.class,new SinifHibernateDataMapper(dao));
 	add(DersSinif.class,new DersSinifHibernateDataMapper(dao));
+	add(Adres.class,new AdresHibernateDataMapper(dao));
 
 	}
 
