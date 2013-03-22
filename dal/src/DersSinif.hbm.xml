@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Mar 18, 2013 10:44:05 AM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+ <class name="com.Argeloji.Domain.DersSinif" schema="public" table="ders_sinif">
+  <composite-id class="com.Argeloji.Domain.DersSinifId" mapped="false" name="id" unsaved-value="undefined">
+   <key-property name="dersKod" type="int">
+    <column name="ders_kod"/>
+   </key-property>
+   <key-property name="sinifKod" type="int">
+    <column name="sinif_kod"/>
+   </key-property>
+  </composite-id>
+  <many-to-one class="com.Argeloji.Domain.Ders" fetch="select"
+   insert="false" name="ders" update="false">
+   <column name="ders_kod" not-null="true"/>
+  </many-to-one>
+  <many-to-one class="com.Argeloji.Domain.Sinif" fetch="select"
+   insert="false" name="sinif" update="false">
+   <column name="sinif_kod" not-null="true"/>
+  </many-to-one>
+  <set fetch="select" inverse="true" lazy="true"
+   name="dersSinifAltOgrenmeAlanis" sort="unsorted" table="ders_sinif_alt_ogrenme_alani">
+   <key>
+    <column name="ders_sinif_sinif_kod" not-null="true"/>
+    <column name="ders_sinif_ders_kod" not-null="true"/>
+   </key>
+   <one-to-many class="com.Argeloji.Domain.DersSinifAltOgrenmeAlani"/>
+  </set>
+ </class>
+</hibernate-mapping>

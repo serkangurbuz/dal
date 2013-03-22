@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Mar 19, 2013 1:29:17 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+ <class name="com.Argeloji.Domain.Etkinlik" schema="public" table="etkinlik">
+  <id name="kod" type="long">
+   <column name="kod"/>
+   <generator class="assigned"/>
+  </id>
+  <many-to-one class="com.Argeloji.Domain.Uygulama" fetch="select" name="uygulama">
+   <column name="uygulama_kod" not-null="true"/>
+  </many-to-one>
+  <property generated="never" lazy="false" name="ad" type="string">
+   <column name="ad" not-null="true"/>
+  </property>
+  <property generated="never" lazy="false" name="aciklama" type="string">
+   <column name="aciklama" not-null="true"/>
+  </property>
+  <property generated="never" lazy="false" name="sira" type="int">
+   <column name="sira" not-null="true"/>
+  </property>
+  <set fetch="select" inverse="true" lazy="true" name="sorus"
+   sort="unsorted" table="soru">
+   <key>
+    <column name="etkinlik_kod" not-null="true"/>
+   </key>
+   <one-to-many class="com.Argeloji.Domain.Soru"/>
+  </set>
+ </class>
+</hibernate-mapping>

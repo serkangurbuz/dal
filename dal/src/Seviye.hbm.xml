@@ -1,0 +1,22 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Mar 18, 2013 10:44:05 AM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+ <class name="com.Argeloji.Domain.Seviye" schema="public" table="seviye">
+  <id name="kod" type="short">
+   <column name="kod"/>
+   <generator class="assigned"/>
+  </id>
+  <property generated="never" lazy="false" name="aciklama" type="string">
+   <column name="aciklama" not-null="true"/>
+  </property>
+  <set fetch="select" inverse="true" lazy="true" name="setts"
+   sort="unsorted" table="sett">
+   <key>
+    <column name="seviye_kod" not-null="true"/>
+   </key>
+   <one-to-many class="com.Argeloji.Domain.Sett"/>
+  </set>
+ </class>
+</hibernate-mapping>

@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Mar 18, 2013 10:44:05 AM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+ <class name="com.Argeloji.Domain.UygulamaKullanici" schema="public" table="uygulama_kullanici">
+  <id name="kullaniciKod" type="long">
+   <column name="kullanici_kod"/>
+   <generator class="assigned"/>
+  </id>
+  <many-to-one class="com.Argeloji.Domain.UygulamaCihaz" fetch="select" name="uygulamaCihaz">
+   <column name="uygulama_cihaz_uygulama_kod" not-null="true"/>
+   <column name="uygulama_cihaz_cihaz_kod" not-null="true"/>
+  </many-to-one>
+  <many-to-one class="com.Argeloji.Domain.Kullanici" fetch="select"
+   insert="false" name="kullanici" update="false">
+   <column name="kullanici_kod" not-null="true" unique="true"/>
+  </many-to-one>
+ </class>
+</hibernate-mapping>

@@ -1,0 +1,51 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Mar 18, 2013 10:44:05 AM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+ <class name="com.Argeloji.Domain.SetSoru" schema="public" table="set_soru">
+  <composite-id class="com.Argeloji.Domain.SetSoruId" mapped="false" name="id" unsaved-value="undefined">
+   <key-property name="setKod" type="long">
+    <column name="set_kod"/>
+   </key-property>
+   <key-property name="soruKod" type="long">
+    <column name="soru_kod"/>
+   </key-property>
+  </composite-id>
+  <many-to-one class="com.Argeloji.Domain.Soru" fetch="select"
+   insert="false" name="soru" update="false">
+   <column name="soru_kod" not-null="true"/>
+  </many-to-one>
+  <many-to-one class="com.Argeloji.Domain.Sett" fetch="select"
+   insert="false" name="sett" update="false">
+   <column name="set_kod" not-null="true"/>
+  </many-to-one>
+  <property generated="never" lazy="false" name="sira" type="short">
+   <column name="sira" not-null="true"/>
+  </property>
+  <set fetch="select" inverse="true" lazy="true"
+   name="oturumSetSoruOlcmeCoktansecmeliTekcevaps" sort="unsorted" table="oturum_set_soru_olcme_coktansecmeli_tekcevap">
+   <key>
+    <column name="set_soru_set_kod" not-null="true"/>
+    <column name="set_soru_soru_kod" not-null="true"/>
+   </key>
+   <one-to-many class="com.Argeloji.Domain.OturumSetSoruOlcmeCoktansecmeliTekcevap"/>
+  </set>
+  <set fetch="select" inverse="true" lazy="true"
+   name="oturumSetSoruOlcmeKlasiks" sort="unsorted" table="oturum_set_soru_olcme_klasik">
+   <key>
+    <column name="set_soru_set_kod" not-null="true"/>
+    <column name="set_soru_soru_kod" not-null="true"/>
+   </key>
+   <one-to-many class="com.Argeloji.Domain.OturumSetSoruOlcmeKlasik"/>
+  </set>
+  <set fetch="select" inverse="true" lazy="true"
+   name="oturumSetSoruOlcmeDogruyanlises" sort="unsorted" table="oturum_set_soru_olcme_dogruyanlis">
+   <key>
+    <column name="set_soru_set_kod" not-null="true"/>
+    <column name="set_soru_soru_kod" not-null="true"/>
+   </key>
+   <one-to-many class="com.Argeloji.Domain.OturumSetSoruOlcmeDogruyanlis"/>
+  </set>
+ </class>
+</hibernate-mapping>

@@ -1,0 +1,37 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Mar 18, 2013 10:44:05 AM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+ <class name="com.Argeloji.Domain.Sett" schema="public" table="sett">
+  <id name="kod" type="long">
+   <column name="kod"/>
+   <generator class="assigned"/>
+  </id>
+  <many-to-one class="com.Argeloji.Domain.Seviye" fetch="select" name="seviye">
+   <column name="seviye_kod" not-null="true"/>
+  </many-to-one>
+  <many-to-one class="com.Argeloji.Domain.Settip" fetch="select" name="settip">
+   <column name="settip_kod" not-null="true"/>
+  </many-to-one>
+  <property generated="never" lazy="false" name="kullaniciKod" type="long">
+   <column name="kullanici_kod" not-null="true"/>
+  </property>
+  <property generated="never" lazy="false" name="olusturmatarih" type="date">
+   <column length="13" name="olusturmatarih" not-null="true"/>
+  </property>
+  <property generated="never" lazy="false" name="sure" type="int">
+   <column name="sure" not-null="true"/>
+  </property>
+  <property generated="never" lazy="false" name="durum" type="short">
+   <column name="durum" not-null="true"/>
+  </property>
+  <set fetch="select" inverse="true" lazy="true" name="setSorus"
+   sort="unsorted" table="set_soru">
+   <key>
+    <column name="set_kod" not-null="true"/>
+   </key>
+   <one-to-many class="com.Argeloji.Domain.SetSoru"/>
+  </set>
+ </class>
+</hibernate-mapping>

@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC
+		"-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+		"http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <property name="hibernate.connection.driver_class">org.postgresql.Driver</property>
+        <property name="hibernate.connection.password">srkn</property>
+        <property name="hibernate.connection.url">jdbc:postgresql://localhost:5432/liferay6_3</property>
+        <property name="hibernate.connection.username">postgres</property>
+        <property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
+        
+        <mapping resource="Kademe.hbm.xml"/>
+        <mapping resource="Ders.hbm.xml"/>
+        <mapping resource="Sinif.hbm.xml"/>
+        <mapping resource="DersSinif.hbm.xml"/>
+        <mapping resource="OgrenmeAlani.hbm.xml"/>
+        <mapping resource="AltOgrenmeAlani.hbm.xml"/>
+        <mapping resource="DersSinifAltOgrenmeAlani.hbm.xml"/>
+        <mapping resource="Kazanim.hbm.xml"/>
+        
+          
+        <mapping resource="UygulamaKullanici.hbm.xml"/>
+        <mapping resource="Uygulama.hbm.xml"/>
+        <mapping resource="Etkinlik.hbm.xml"/>
+        <mapping resource="UygulamaMetaveri.hbm.xml"/>
+        <mapping resource="Cihaz.hbm.xml"/>
+        <mapping resource="UygulamaCihaz.hbm.xml"/>
+        <mapping resource="CihazUygulamaOturum.hbm.xml"/>
+        <mapping resource="CihazDegerlendirmeOturum.hbm.xml"/>
+        <mapping resource="CihazAlistirmaOturum.hbm.xml"/>
+        <mapping resource="CihazEtkinlikOturum.hbm.xml"/>
+           
+        <mapping resource="Gorsel.hbm.xml"/>
+        <mapping resource="Soru.hbm.xml"/>     
+        <mapping resource="Klasik.hbm.xml"/>
+        <mapping resource="Dogruyanlis.hbm.xml"/>
+        <mapping resource="Fonksiyonad.hbm.xml"/>
+        <mapping resource="Settip.hbm.xml"/>
+        <mapping resource="Seviye.hbm.xml"/>
+        <mapping resource="Sett.hbm.xml"/>
+        <mapping resource="SetSoru.hbm.xml"/>
+        
+        
+        
+         <mapping resource="Cevapdurum.hbm.xml"/>
+        <mapping resource="Coktansecmeli3Tekcevap.hbm.xml"/>
+        <mapping resource="OturumSetSoruOlcmeKlasik.hbm.xml"/>
+        <mapping resource="OturumSetSoruOlcmeDogruyanlis.hbm.xml"/>         
+        <mapping resource="OturumSetSoruOlcmeCoktansecmeliTekcevap.hbm.xml"/>
+         
+        
+        <!-- kizlarin tablolari -->
+
+
+ 
+       <mapping resource="Adres.hbm.xml"/>
+       <mapping resource="Kullanici.hbm.xml"/>
+       <mapping resource="Ogrenci.hbm.xml"/>
+       <mapping resource="Veli.hbm.xml"/>
+       <mapping resource="Personel.hbm.xml"/>
+       <mapping resource="Akademik.hbm.xml"/>
+       <mapping resource="Idari.hbm.xml"/>
+       <mapping resource="Kullanicigrup.hbm.xml"/>
+       <mapping resource="Oab.hbm.xml"/>
+       <mapping resource="Yonetim.hbm.xml"/>
+       <mapping resource="Zumre.hbm.xml"/>
+       <mapping resource="Oabveli.hbm.xml"/>
+       <mapping resource="Zumreogretmen.hbm.xml"/>
+       <mapping resource="Yonetimpersonel.hbm.xml"/>
+       <mapping resource="User.hbm.xml"/>
+       <mapping resource="Useridmapper.hbm.xml"/>
+       <mapping resource="Okul.hbm.xml"/>
+       <mapping resource="Ozelokul.hbm.xml"/>
+       <mapping resource="Okulgrubu.hbm.xml"/>
+       <mapping resource="Sube.hbm.xml"/>
+       <mapping resource="Okulkademe.hbm.xml"/>
+       <mapping resource="Ogrencisube.hbm.xml"/>
+       <mapping resource="Okulsube.hbm.xml"/>
+       <mapping resource="Okulogrenci.hbm.xml"/>       
+       <mapping resource="Veliokul.hbm.xml"/>
+       <mapping resource="Okulpersonel.hbm.xml"/>
+       <mapping resource="Kulup.hbm.xml"/>
+       <mapping resource="Okulkulup.hbm.xml"/>
+       <mapping resource="Kulupogretmen.hbm.xml"/>
+       <mapping resource="Kulupogrenci.hbm.xml"/>
+       <mapping resource="Altyapi.hbm.xml"/>
+       <mapping resource="Okulaltyapi.hbm.xml"/>
+       <mapping resource="Faaliyetsinifi.hbm.xml"/>
+       <mapping resource="Ifadeyeteneksinifi.hbm.xml"/>
+       <mapping resource="Yardimcioda.hbm.xml"/>
+       <mapping resource="Labratuar.hbm.xml"/>
+       <mapping resource="Group.hbm.xml"/>
+       <mapping resource="UsersGroups.hbm.xml"/>    
+         <mapping resource="Veliogrenci.hbm.xml"/>    
+       
+       
+    
+ 
+        
+        <mapping resource="Okulzumre.hbm.xml"/>
+        
+    </session-factory>
+</hibernate-configuration>

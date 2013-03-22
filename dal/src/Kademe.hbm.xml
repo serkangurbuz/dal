@@ -1,0 +1,45 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Mar 18, 2013 10:44:05 AM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+ <class name="com.Argeloji.Domain.Kademe" schema="public" table="kademe">
+  <id name="kod" type="int">
+   <column name="kod"/>
+   <generator class="sequence">
+   <param name="sequence">kademe_kod_seq</param>
+   </generator>
+  </id>
+  <property generated="never" lazy="false" name="ad" type="string">
+   <column name="ad" not-null="true"/>
+  </property>
+  <set fetch="select" inverse="true" lazy="true" name="kulups"
+   sort="unsorted" table="kulup">
+   <key>
+    <column name="kademe_kod" not-null="true"/>
+   </key>
+   <one-to-many class="com.Argeloji.Domain.Kulup"/>
+  </set>
+  <set fetch="select" inverse="true" lazy="false" name="sinifs"
+   sort="unsorted" table="sinif">
+   <key>
+    <column name="kademe_kod" not-null="true"/>
+   </key>
+   <one-to-many class="com.Argeloji.Domain.Sinif"/>
+  </set>
+  <set fetch="select" inverse="true" lazy="true" name="okulkademes"
+   sort="unsorted" table="okulkademe">
+   <key>
+    <column name="kademe_kod" not-null="true"/>
+   </key>
+   <one-to-many class="com.Argeloji.Domain.Okulkademe"/>
+  </set>
+  <set fetch="select" inverse="true" lazy="true" name="okulzumres"
+   sort="unsorted" table="okulzumre">
+   <key>
+    <column name="kademe_kod" not-null="true"/>
+   </key>
+   <one-to-many class="com.Argeloji.Domain.Okulzumre"/>
+  </set>
+ </class>
+</hibernate-mapping>

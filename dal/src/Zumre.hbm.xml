@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Mar 18, 2013 10:44:05 AM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+ <class name="com.Argeloji.Domain.Zumre" schema="public" table="zumre">
+  <id name="kod" type="int">
+   <column name="kod"/>
+   <generator class="assigned"/>
+  </id>
+  <many-to-one class="com.Argeloji.Domain.Kullanicigrup" fetch="select"
+   insert="false" name="kullanicigrup" update="false">
+   <column name="kod" not-null="true" unique="true"/>
+  </many-to-one>
+  <property generated="never" lazy="false" name="alanadi" type="string">
+   <column name="alanadi" not-null="true"/>
+  </property>
+  <property generated="never" lazy="false" name="giristarih" type="date">
+   <column length="13" name="giristarih" not-null="true"/>
+  </property>
+  <property generated="never" lazy="false" name="cikistarih" type="date">
+   <column length="13" name="cikistarih" not-null="true"/>
+  </property>
+  <set fetch="select" inverse="true" lazy="true" name="okulzumres"
+   sort="unsorted" table="okulzumre">
+   <key>
+    <column name="zumre_kod" not-null="true"/>
+   </key>
+   <one-to-many class="com.Argeloji.Domain.Okulzumre"/>
+  </set>
+  <set fetch="select" inverse="true" lazy="true" name="zumreogretmens"
+   sort="unsorted" table="zumreogretmen">
+   <key>
+    <column name="zumre_kod" not-null="true"/>
+   </key>
+   <one-to-many class="com.Argeloji.Domain.Zumreogretmen"/>
+  </set>
+ </class>
+</hibernate-mapping>

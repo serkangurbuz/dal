@@ -1,0 +1,64 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Mar 19, 2013 1:29:17 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+ <class name="com.Argeloji.Domain.Soru" schema="public" table="soru">
+  <id name="kod" type="long">
+   <column name="kod"/>
+   <generator class="assigned"/>
+  </id>
+  <many-to-one class="com.Argeloji.Domain.Gorsel" fetch="select" name="gorsel">
+   <column name="sorumetin_gorsel_kod" not-null="true"/>
+  </many-to-one>
+  <many-to-one class="com.Argeloji.Domain.Kazanim" fetch="select" name="kazanim">
+   <column name="kazanim_kod" not-null="true"/>
+  </many-to-one>
+  <many-to-one class="com.Argeloji.Domain.Etkinlik" fetch="select" name="etkinlik">
+   <column name="etkinlik_kod" not-null="true"/>
+  </many-to-one>
+  <property generated="never" lazy="false" name="sorumetin" type="string">
+   <column name="sorumetin" not-null="true"/>
+  </property>
+  <property generated="never" lazy="false" name="sorumetingorselkonum" type="short">
+   <column name="sorumetingorselkonum" not-null="true"/>
+  </property>
+  <property generated="never" lazy="false" name="tip" type="short">
+   <column name="tip" not-null="true"/>
+  </property>
+  <property generated="never" lazy="false" name="seviye" type="short">
+   <column name="seviye" not-null="true"/>
+  </property>
+  <property generated="never" lazy="false" name="cozum" type="string">
+   <column name="cozum" not-null="true"/>
+  </property>
+  <set fetch="select" inverse="true" lazy="true" name="setSorus"
+   sort="unsorted" table="set_soru">
+   <key>
+    <column name="soru_kod" not-null="true"/>
+   </key>
+   <one-to-many class="com.Argeloji.Domain.SetSoru"/>
+  </set>
+  <set fetch="select" inverse="true" lazy="true" name="dogruyanlises"
+   sort="unsorted" table="dogruyanlis">
+   <key>
+    <column name="soru_kod" not-null="true"/>
+   </key>
+   <one-to-many class="com.Argeloji.Domain.Dogruyanlis"/>
+  </set>
+  <set fetch="select" inverse="true" lazy="true"
+   name="coktansecmeli3Tekcevaps" sort="unsorted" table="coktansecmeli3_tekcevap">
+   <key>
+    <column name="soru_kod" not-null="true"/>
+   </key>
+   <one-to-many class="com.Argeloji.Domain.Coktansecmeli3Tekcevap"/>
+  </set>
+  <set fetch="select" inverse="true" lazy="true" name="klasiks"
+   sort="unsorted" table="klasik">
+   <key>
+    <column name="soru_kod" not-null="true"/>
+   </key>
+   <one-to-many class="com.Argeloji.Domain.Klasik"/>
+  </set>
+ </class>
+</hibernate-mapping>

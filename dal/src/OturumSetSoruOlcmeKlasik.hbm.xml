@@ -1,0 +1,54 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Mar 18, 2013 10:44:05 AM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+ <class name="com.Argeloji.Domain.OturumSetSoruOlcmeKlasik"
+  schema="public" table="oturum_set_soru_olcme_klasik">
+  <composite-id class="com.Argeloji.Domain.OturumSetSoruOlcmeKlasikId" mapped="false"
+   name="id" unsaved-value="undefined">
+   <key-property name="cihazKod" type="long">
+    <column name="cihaz_kod"/>
+   </key-property>
+   <key-property name="oturumKod" type="long">
+    <column name="oturum_kod"/>
+   </key-property>
+   <key-property name="setSoruSetKod" type="long">
+    <column name="set_soru_set_kod"/>
+   </key-property>
+   <key-property name="setSoruSoruKod" type="long">
+    <column name="set_soru_soru_kod"/>
+   </key-property>
+  </composite-id>
+  <many-to-one class="com.Argeloji.Domain.SetSoru" fetch="select"
+   insert="false" name="setSoru" update="false">
+   <column name="set_soru_set_kod" not-null="true"/>
+   <column name="set_soru_soru_kod" not-null="true"/>
+  </many-to-one>
+  <many-to-one class="com.Argeloji.Domain.Cihaz" fetch="select"
+   insert="false" name="cihaz" update="false">
+   <column name="cihaz_kod" not-null="true"/>
+  </many-to-one>
+  <many-to-one class="com.Argeloji.Domain.Cevapdurum" fetch="select" name="cevapdurum">
+   <column name="cevapdurum_kod" not-null="true"/>
+  </many-to-one>
+  <property generated="never" lazy="false" name="cevap1" type="string">
+   <column name="cevap1" not-null="true"/>
+  </property>
+  <property generated="never" lazy="false" name="cevap2" type="string">
+   <column name="cevap2" not-null="true"/>
+  </property>
+  <property generated="never" lazy="false" name="deneme" type="short">
+   <column name="deneme" not-null="true"/>
+  </property>
+  <property generated="never" lazy="false" name="giris" type="date">
+   <column length="13" name="giris" not-null="true"/>
+  </property>
+  <property generated="never" lazy="false" name="cikis" type="date">
+   <column length="13" name="cikis" not-null="true"/>
+  </property>
+  <property generated="never" lazy="false" name="sure" type="int">
+   <column name="sure" not-null="true"/>
+  </property>
+ </class>
+</hibernate-mapping>

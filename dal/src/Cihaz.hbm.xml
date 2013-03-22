@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Mar 18, 2013 10:44:05 AM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+ <class name="com.Argeloji.Domain.Cihaz" schema="public" table="cihaz">
+  <id name="kod" type="long">
+   <column name="kod"/>
+   <generator class="assigned"/>
+  </id>
+  <property generated="never" lazy="false" name="androidId" type="string">
+   <column name="android_id" not-null="true"/>
+  </property>
+  <property generated="never" lazy="false" name="macAddress" type="string">
+   <column name="mac_address" not-null="true"/>
+  </property>
+  <set fetch="select" inverse="true" lazy="true" name="uygulamaCihazs"
+   sort="unsorted" table="uygulama_cihaz">
+   <key>
+    <column name="cihaz_kod" not-null="true"/>
+   </key>
+   <one-to-many class="com.Argeloji.Domain.UygulamaCihaz"/>
+  </set>
+  <set fetch="select" inverse="true" lazy="true"
+   name="oturumSetSoruOlcmeDogruyanlises" sort="unsorted" table="oturum_set_soru_olcme_dogruyanlis">
+   <key>
+    <column name="cihaz_kod" not-null="true"/>
+   </key>
+   <one-to-many class="com.Argeloji.Domain.OturumSetSoruOlcmeDogruyanlis"/>
+  </set>
+  <set fetch="select" inverse="true" lazy="true"
+   name="oturumSetSoruOlcmeKlasiks" sort="unsorted" table="oturum_set_soru_olcme_klasik">
+   <key>
+    <column name="cihaz_kod" not-null="true"/>
+   </key>
+   <one-to-many class="com.Argeloji.Domain.OturumSetSoruOlcmeKlasik"/>
+  </set>
+  <set fetch="select" inverse="true" lazy="true"
+   name="oturumSetSoruOlcmeCoktansecmeliTekcevaps" sort="unsorted" table="oturum_set_soru_olcme_coktansecmeli_tekcevap">
+   <key>
+    <column name="cihaz_kod" not-null="true"/>
+   </key>
+   <one-to-many class="com.Argeloji.Domain.OturumSetSoruOlcmeCoktansecmeliTekcevap"/>
+  </set>
+ </class>
+</hibernate-mapping>

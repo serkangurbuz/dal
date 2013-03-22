@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Mar 18, 2013 10:44:05 AM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+ <class name="com.Argeloji.Domain.Kulupogrenci" schema="public" table="kulupogrenci">
+  <composite-id class="com.Argeloji.Domain.KulupogrenciId" mapped="false" name="id" unsaved-value="undefined">
+   <key-property name="kullaniciOgrenciKod" type="long">
+    <column name="kullanici_ogrenci_kod"/>
+   </key-property>
+   <key-property name="giristarih" type="date">
+    <column length="13" name="giristarih"/>
+   </key-property>
+   <key-property name="okulkulupKod" type="int">
+    <column name="okulkulup_kod"/>
+   </key-property>
+  </composite-id>
+  <many-to-one class="com.Argeloji.Domain.Okulkulup" fetch="select"
+   insert="false" name="okulkulup" update="false">
+   <column name="okulkulup_kod" not-null="true"/>
+  </many-to-one>
+  <many-to-one class="com.Argeloji.Domain.Ogrenci" fetch="select"
+   insert="false" name="ogrenci" update="false">
+   <column name="kullanici_ogrenci_kod" not-null="true"/>
+  </many-to-one>
+  <property generated="never" lazy="false" name="cikistarih" type="date">
+   <column length="13" name="cikistarih"/>
+  </property>
+ </class>
+</hibernate-mapping>

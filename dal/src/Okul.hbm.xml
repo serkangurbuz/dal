@@ -1,0 +1,94 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Mar 18, 2013 10:44:05 AM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+ <class name="com.Argeloji.Domain.Okul" schema="public" table="okul">
+  <id name="kod" type="int">
+   <column name="kod"/>
+   <generator class="assigned"/>
+  </id>
+  <many-to-one class="com.Argeloji.Domain.Adres" fetch="select" name="adres">
+   <column name="adres_kod" not-null="true"/>
+  </many-to-one>
+  <property generated="never" lazy="false" name="ad" type="string">
+   <column name="ad" not-null="true"/>
+  </property>
+  <property generated="never" lazy="false" name="giristarih" type="date">
+   <column length="13" name="giristarih" not-null="true"/>
+  </property>
+  <property generated="never" lazy="false" name="tip" type="string">
+   <column name="tip" not-null="true"/>
+  </property>
+  <set fetch="select" inverse="true" lazy="true" name="okulogrencis"
+   sort="unsorted" table="okulogrenci">
+   <key>
+    <column name="okul_kod" not-null="true"/>
+   </key>
+   <one-to-many class="com.Argeloji.Domain.Okulogrenci"/>
+  </set>
+  <set fetch="select" inverse="true" lazy="true" name="okulgrubus"
+   sort="unsorted" table="okulgrubu">
+   <key>
+    <column name="okul_kod" not-null="true"/>
+   </key>
+   <one-to-many class="com.Argeloji.Domain.Okulgrubu"/>
+  </set>
+  <set fetch="select" inverse="true" lazy="true" name="okulkulups"
+   sort="unsorted" table="okulkulup">
+   <key>
+    <column name="okul_kod" not-null="true"/>
+   </key>
+   <one-to-many class="com.Argeloji.Domain.Okulkulup"/>
+  </set>
+  <set fetch="select" inverse="true" lazy="true" name="okulzumres"
+   sort="unsorted" table="okulzumre">
+   <key>
+    <column name="okul_kod" not-null="true"/>
+   </key>
+   <one-to-many class="com.Argeloji.Domain.Okulzumre"/>
+  </set>
+  <set fetch="select" inverse="true" lazy="true" name="okulpersonels"
+   sort="unsorted" table="okulpersonel">
+   <key>
+    <column name="okul_kod" not-null="true"/>
+   </key>
+   <one-to-many class="com.Argeloji.Domain.Okulpersonel"/>
+  </set>
+  <set fetch="select" inverse="true" lazy="true" name="okulsubes"
+   sort="unsorted" table="okulsube">
+   <key>
+    <column name="okul_kod" not-null="true"/>
+   </key>
+   <one-to-many class="com.Argeloji.Domain.Okulsube"/>
+  </set>
+  <set fetch="select" inverse="true" lazy="true" name="okulaltyapis"
+   sort="unsorted" table="okulaltyapi">
+   <key>
+    <column name="okul_kod" not-null="true"/>
+   </key>
+   <one-to-many class="com.Argeloji.Domain.Okulaltyapi"/>
+  </set>
+  <set fetch="select" inverse="true" lazy="true" name="okulkademes"
+   sort="unsorted" table="okulkademe">
+   <key>
+    <column name="okul_kod" not-null="true"/>
+   </key>
+   <one-to-many class="com.Argeloji.Domain.Okulkademe"/>
+  </set>
+  <set fetch="select" inverse="true" lazy="true" name="veliokuls"
+   sort="unsorted" table="veliokul">
+   <key>
+    <column name="okul_kod" not-null="true"/>
+   </key>
+   <one-to-many class="com.Argeloji.Domain.Veliokul"/>
+  </set>
+  <set fetch="select" inverse="true" lazy="true" name="groups"
+   sort="unsorted" table="group_">
+   <key>
+    <column name="okul_kod" not-null="true"/>
+   </key>
+   <one-to-many class="com.Argeloji.Domain.Group"/>
+  </set>
+ </class>
+</hibernate-mapping>

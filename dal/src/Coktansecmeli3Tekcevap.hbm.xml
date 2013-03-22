@@ -1,0 +1,55 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Mar 18, 2013 3:40:31 PM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+ <class name="com.Argeloji.Domain.Coktansecmeli3Tekcevap"
+  schema="public" table="coktansecmeli3_tekcevap">
+  <composite-id class="com.Argeloji.Domain.Coktansecmeli3TekcevapId" mapped="false"
+   name="id" unsaved-value="undefined">
+   <key-property name="soruKod" type="long">
+    <column name="soru_kod"/>
+   </key-property>
+   <key-property name="secenek1metin" type="string">
+    <column name="secenek1metin"/>
+   </key-property>
+   <key-property name="secenek1GorselKod" type="long">
+    <column name="secenek1_gorsel_kod"/>
+   </key-property>
+   <key-property name="secenek2metin" type="string">
+    <column name="secenek2metin"/>
+   </key-property>
+   <key-property name="secenek2GorselKod" type="long">
+    <column name="secenek2_gorsel_kod"/>
+   </key-property>
+   <key-property name="secenek3metin" type="string">
+    <column name="secenek3metin"/>
+   </key-property>
+   <key-property name="secenek3GorselKod" type="long">
+    <column name="secenek3_gorsel_kod"/>
+   </key-property>
+   <key-property name="secenekgorselkonum" type="short">
+    <column name="secenekgorselkonum"/>
+   </key-property>
+   <key-property name="dogrusecenek" type="short">
+    <column name="dogrusecenek"/>
+   </key-property>
+  </composite-id>
+  <many-to-one class="com.Argeloji.Domain.Soru" fetch="select"
+   insert="false" name="soru" update="false">
+   <column name="soru_kod" not-null="true"/>
+  </many-to-one>
+  <many-to-one class="com.Argeloji.Domain.Gorsel" fetch="select"
+   insert="false" name="gorselBySecenek1GorselKod" update="false">
+   <column name="secenek1_gorsel_kod" not-null="true"/>
+  </many-to-one>
+  <many-to-one class="com.Argeloji.Domain.Gorsel" fetch="select"
+   insert="false" name="gorselBySecenek3GorselKod" update="false">
+   <column name="secenek3_gorsel_kod" not-null="true"/>
+  </many-to-one>
+  <many-to-one class="com.Argeloji.Domain.Gorsel" fetch="select"
+   insert="false" name="gorselBySecenek2GorselKod" update="false">
+   <column name="secenek2_gorsel_kod" not-null="true"/>
+  </many-to-one>
+ </class>
+</hibernate-mapping>

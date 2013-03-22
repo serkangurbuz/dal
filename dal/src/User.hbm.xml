@@ -1,0 +1,140 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+                                   "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Mar 18, 2013 10:44:05 AM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+ <class name="com.Argeloji.Domain.User" schema="public" table="user_">
+  <id name="userid" type="long">
+   <column name="userid"/>
+   <generator class="assigned"/>
+  </id>
+  <property generated="never" lazy="false" name="uuid" type="string">
+   <column length="75" name="uuid_"/>
+  </property>
+  <property generated="never" lazy="false" name="companyid" type="java.lang.Long">
+   <column name="companyid"/>
+  </property>
+  <property generated="never" lazy="false" name="createdate" type="timestamp">
+   <column length="29" name="createdate"/>
+  </property>
+  <property generated="never" lazy="false" name="modifieddate" type="timestamp">
+   <column length="29" name="modifieddate"/>
+  </property>
+  <property generated="never" lazy="false" name="defaultuser" type="java.lang.Boolean">
+   <column name="defaultuser"/>
+  </property>
+  <property generated="never" lazy="false" name="contactid" type="java.lang.Long">
+   <column name="contactid" unique="true"/>
+  </property>
+  <property generated="never" lazy="false" name="password" type="string">
+   <column length="75" name="password_"/>
+  </property>
+  <property generated="never" lazy="false" name="passwordencrypted" type="java.lang.Boolean">
+   <column name="passwordencrypted"/>
+  </property>
+  <property generated="never" lazy="false" name="passwordreset" type="java.lang.Boolean">
+   <column name="passwordreset"/>
+  </property>
+  <property generated="never" lazy="false" name="passwordmodifieddate" type="timestamp">
+   <column length="29" name="passwordmodifieddate"/>
+  </property>
+  <property generated="never" lazy="false" name="digest" type="string">
+   <column name="digest"/>
+  </property>
+  <property generated="never" lazy="false" name="reminderqueryquestion" type="string">
+   <column length="75" name="reminderqueryquestion"/>
+  </property>
+  <property generated="never" lazy="false" name="reminderqueryanswer" type="string">
+   <column length="75" name="reminderqueryanswer"/>
+  </property>
+  <property generated="never" lazy="false" name="gracelogincount" type="java.lang.Integer">
+   <column name="gracelogincount"/>
+  </property>
+  <property generated="never" lazy="false" name="screenname" type="string">
+   <column length="75" name="screenname"/>
+  </property>
+  <property generated="never" lazy="false" name="emailaddress" type="string">
+   <column length="75" name="emailaddress"/>
+  </property>
+  <property generated="never" lazy="false" name="facebookid" type="java.lang.Long">
+   <column name="facebookid"/>
+  </property>
+  <property generated="never" lazy="false" name="openid" type="string">
+   <column length="1024" name="openid"/>
+  </property>
+  <property generated="never" lazy="false" name="portraitid" type="java.lang.Long">
+   <column name="portraitid"/>
+  </property>
+  <property generated="never" lazy="false" name="languageid" type="string">
+   <column length="75" name="languageid"/>
+  </property>
+  <property generated="never" lazy="false" name="timezoneid" type="string">
+   <column length="75" name="timezoneid"/>
+  </property>
+  <property generated="never" lazy="false" name="greeting" type="string">
+   <column name="greeting"/>
+  </property>
+  <property generated="never" lazy="false" name="comments" type="string">
+   <column name="comments"/>
+  </property>
+  <property generated="never" lazy="false" name="firstname" type="string">
+   <column length="75" name="firstname"/>
+  </property>
+  <property generated="never" lazy="false" name="middlename" type="string">
+   <column length="75" name="middlename"/>
+  </property>
+  <property generated="never" lazy="false" name="lastname" type="string">
+   <column length="75" name="lastname"/>
+  </property>
+  <property generated="never" lazy="false" name="jobtitle" type="string">
+   <column length="100" name="jobtitle"/>
+  </property>
+  <property generated="never" lazy="false" name="logindate" type="timestamp">
+   <column length="29" name="logindate"/>
+  </property>
+  <property generated="never" lazy="false" name="loginip" type="string">
+   <column length="75" name="loginip"/>
+  </property>
+  <property generated="never" lazy="false" name="lastlogindate" type="timestamp">
+   <column length="29" name="lastlogindate"/>
+  </property>
+  <property generated="never" lazy="false" name="lastloginip" type="string">
+   <column length="75" name="lastloginip"/>
+  </property>
+  <property generated="never" lazy="false" name="lastfailedlogindate" type="timestamp">
+   <column length="29" name="lastfailedlogindate"/>
+  </property>
+  <property generated="never" lazy="false" name="failedloginattempts" type="java.lang.Integer">
+   <column name="failedloginattempts"/>
+  </property>
+  <property generated="never" lazy="false" name="lockout" type="java.lang.Boolean">
+   <column name="lockout"/>
+  </property>
+  <property generated="never" lazy="false" name="lockoutdate" type="timestamp">
+   <column length="29" name="lockoutdate"/>
+  </property>
+  <property generated="never" lazy="false" name="agreedtotermsofuse" type="java.lang.Boolean">
+   <column name="agreedtotermsofuse"/>
+  </property>
+  <property generated="never" lazy="false" name="emailaddressverified" type="java.lang.Boolean">
+   <column name="emailaddressverified"/>
+  </property>
+  <property generated="never" lazy="false" name="status" type="java.lang.Integer">
+   <column name="status"/>
+  </property>
+  <set fetch="select" inverse="true" lazy="true" name="useridmappers"
+   sort="unsorted" table="useridmapper">
+   <key>
+    <column name="userid" not-null="true"/>
+   </key>
+   <one-to-many class="com.Argeloji.Domain.Useridmapper"/>
+  </set>
+  <set fetch="select" inverse="true" lazy="true" name="usersGroupses"
+   sort="unsorted" table="users_groups">
+   <key>
+    <column name="userid" not-null="true"/>
+   </key>
+   <one-to-many class="com.Argeloji.Domain.UsersGroups"/>
+  </set>
+ </class>
+</hibernate-mapping>

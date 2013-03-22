@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd">
+<!-- Generated Mar 18, 2013 10:44:05 AM by Hibernate Tools 3.4.0.CR1 -->
+<hibernate-mapping>
+    <class name="com.Argeloji.Domain.Sinif" table="sinif" schema="public">
+        <id name="kod" type="int">
+            <column name="kod" />
+           <generator class="sequence">
+           <param name="sequence">sinif_kod_seq</param></generator>
+        </id>
+        <many-to-one name="kademe" class="com.Argeloji.Domain.Kademe" fetch="select" lazy="false">
+            <column name="kademe_kod" not-null="true" />
+        </many-to-one>
+        <property name="ad" type="string">
+            <column name="ad" not-null="true" />
+        </property>
+        <set name="subes" table="sube" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="sinif_kod" not-null="true" />
+            </key>
+            <one-to-many class="com.Argeloji.Domain.Sube" />
+        </set>
+        <set name="dersSinifs" table="ders_sinif" inverse="true" lazy="false" fetch="select">
+            <key>
+                <column name="sinif_kod" not-null="true" />
+            </key>
+            <one-to-many class="com.Argeloji.Domain.DersSinif" />
+        </set>
+    </class>
+</hibernate-mapping>
