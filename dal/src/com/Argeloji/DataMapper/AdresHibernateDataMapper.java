@@ -39,72 +39,59 @@ private final Dao dao;
 
 
 	
-	public void deleteDers(Ders ders){
+	public void delete(Adres adres){
 		
 		 dao.begin();
-	     dao.getSession().delete(ders);
+	     dao.getSession().delete(adres);
 	     dao.commit();
 	     dao.close();	
 		
 	
 	}	
 	
-	public ArrayList<Ders> getListOfDers(){
+	public ArrayList<Adres> getListOfAdres(){
 		
-		ArrayList<Ders> dersler=null;
+		ArrayList<Adres> adresler=null;
 		
 		 dao.begin();
-		 dersler = (ArrayList) dao.getSession().createQuery("FROM Ders").list();
+		 adresler = (ArrayList) dao.getSession().createQuery("FROM Adres").list();
 	     dao.commit();
 	     dao.close();	
 		
-	     return dersler;
+	     return adresler;
 	
 	}
 	
 	
-	public Ders getDersByKod(int kod){
+	public Adres getAdresByKod(long kod){
 		
 		
 		dao.begin();
-		Ders ders=(Ders) dao.getSession().get(Ders.class, kod);
+		Adres adres=(Adres) dao.getSession().get(Adres.class, kod);
 		dao.commit();
 		dao.close();
 		
-		return ders;			
+		return adres;			
 	  }
 	
 	
-	public List<Ders> getDersByAd(String ders_ad){
-		
-		
-		dao.begin();
-		List list= dao.getSession().createQuery("FROM Ders d where d.ad=:ders_ad")
-		.setParameter("ders_ad",ders_ad).list();
-		dao.commit();
-		dao.close();
+	
+	public void update(Adres adres) throws Exception{
+		try {
+			
+			dao.begin();		
+			dao.getSession().update(adres);
+			dao.commit();
+			dao.close();
+			
+		} catch (Exception e) {
+			dao.rollback();
+			throw new Exception("...HATA:Adres nesnesini veritabaninda Güncellenemedi..." +adres.getKod());
+			// TODO: handle exception
 		
 	
 		
-			return list;	
-		
-		
-	}
-	
-	
-	
-	public void updateDers(Ders ders){
-		
-	
-		dao.begin();
-		Query query= dao.getSession().createQuery("Update Ders d set d.ad=:ders_ad where d.kod=:ders_kod");
-		query.setParameter("kademe_kod", ders.getKod());
-		query.setParameter("kademe_ad", ders.getAd());
-		int updateRowNumber= query.executeUpdate();
-		dao.commit();
-		dao.close();
-		
-	
-		
+		}
 	}
 }
+

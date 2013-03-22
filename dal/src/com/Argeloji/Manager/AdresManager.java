@@ -38,37 +38,32 @@ private final DMRegistry registry;
 	
 	}
 	
-	
-	
-
-	
-	public void delete(Ders ders)
+	public void update(Adres adres)throws Exception
 	{
-		getMapper().deleteDers(ders);
-	
+		getMapper().update(adres);
 	}
 	
-	public ArrayList<Ders> getListOfDers(){
-		
-		
-		return getMapper().getListOfDers();		
-		
-	}
-	
-    public Ders getDersByKod(int kod){
-		
-		
-		return getMapper().getDersByKod(kod);
-		
-	}
-    
 
-    public List<Ders> getDersByAd(String ders_ad){		
+	
+	public void delete(Adres adres)
+	{
+		getMapper().delete(adres);
+	
+	}
+	
+	public ArrayList<Adres> getListOfAdres(){
 		
-		return getMapper().getDersByAd(ders_ad);
+		
+		return getMapper().getListOfAdres();	
 		
 	}
-    
+	
+    public Adres getAdresByKod(int kod){
+		
+		
+		return getMapper().getAdresByKod(kod);
+		
+	}
     
     
     

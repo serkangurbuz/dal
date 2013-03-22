@@ -6,7 +6,9 @@
  <class name="com.Argeloji.Domain.Okul" schema="public" table="okul">
   <id name="kod" type="int">
    <column name="kod"/>
-   <generator class="assigned"/>
+   <generator class="sequence">
+   			<param name="sequence">okul_kod_seq</param>
+   			</generator>
   </id>
   <many-to-one class="com.Argeloji.Domain.Adres" fetch="select" name="adres">
    <column name="adres_kod" not-null="true"/>
