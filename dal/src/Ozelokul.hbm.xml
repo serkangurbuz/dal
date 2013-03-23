@@ -6,7 +6,9 @@
  <class name="com.Argeloji.Domain.Ozelokul" schema="public" table="ozelokul">
   <id name="kod" type="int">
    <column name="kod"/>
-   <generator class="assigned"/>
+   <generator class="sequence">
+   			<param name="sequence">ozelokul_kod_seq</param>
+   	</generator>
   </id>
   <property generated="never" lazy="false" name="ad" type="string">
    <column name="ad" not-null="true"/>
