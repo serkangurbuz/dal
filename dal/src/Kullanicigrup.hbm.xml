@@ -6,7 +6,9 @@
  <class name="com.Argeloji.Domain.Kullanicigrup" schema="public" table="kullanicigrup">
   <id name="kod" type="int">
    <column name="kod"/>
-   <generator class="assigned"/>
+   <generator class="sequence">
+   <param name="sequence">kullanicigrup_kod_seq</param>
+   </generator>
   </id>
   <property generated="never" lazy="false" name="tip" type="string">
    <column name="tip" not-null="true"/>
