@@ -4,8 +4,10 @@ import java.util.List;
 
 import com.Argeloji.DataMapper.KademeHibernateDataMapper;
 import com.Argeloji.DataMapper.OkulHibernateDataMapper;
+import com.Argeloji.DataMapper.OkulkademeHibernateDataMapper;
 import com.Argeloji.Domain.Kademe;
 import com.Argeloji.Domain.Okul;
+import com.Argeloji.Domain.Okulkademe;
 import com.Argeloji.Service.DMRegistry;
 
 
@@ -21,50 +23,50 @@ private final DMRegistry registry;
 	
 	}
 	
-	private OkulHibernateDataMapper getMapper()
+	private OkulkademeHibernateDataMapper getMapper()
 	{
 
-		return registry.get(OkulHibernateDataMapper.class,Okul.class);
+		return registry.get(OkulkademeHibernateDataMapper.class,Okulkademe.class);
 	}
 	
-	public void save(Okul okul) throws Exception
+	public void save(Okulkademe okul) throws Exception
 	{
 		
-	getMapper().save(okul);
+		getMapper().save(okul);
 	
 	}
 	
-	public void update(Okul okul) throws Exception{
+	public void update(Okulkademe okul) throws Exception{
 		
 		getMapper().update(okul);
 		
 		
 	} 
 	
-	public void delete(Okul okul)
+	public void delete(Okulkademe okul)
 	{
 		getMapper().delete(okul);
 	
 	}
 	
-	public ArrayList<Okul> getListOfOkul(){
+	public ArrayList<Okulkademe> getListOfOkulkademe(){
 		
 		
-		return getMapper().getListOfOkul();		
+		return getMapper().getListOfOkulkademe();
 		
 	}
 	
-    public Okul getOkulByKod(int kod){
+    public Okulkademe getOkulkademeByKod(Okul okul){
 		
 		
-		return getMapper().getOkulByKod(kod);
+		return getMapper().getOkulkademeByOkul(okul);
 		
 	}
     
 
-    public Okul getOkulByAd(String ad){		
+    public Okulkademe getOkulkademeByKademe(Kademe kademe){	
 		
-		return getMapper().getOkulByAd(ad);
+		return getMapper().getOkulkademeByKademe(kademe);
 		
 	}
     

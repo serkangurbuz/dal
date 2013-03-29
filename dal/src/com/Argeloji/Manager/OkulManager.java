@@ -23,51 +23,51 @@ private final DMRegistry registry;
 	
 	}
 	
-	private OkulkademeHibernateDataMapper getMapper()
+	private OkulHibernateDataMapper getMapper()
 	{
 
-		return registry.get(OkulkademeHibernateDataMapper.class,Okulkademe.class);
+		return registry.get(OkulHibernateDataMapper.class,Okul.class);
 	}
 	
-	public void save(Okulkademe okulkademe) throws Exception
+	public void save(Okul okul) throws Exception
 	{
 		
-	getMapper().save(okulkademe);
+	getMapper().save(okul);
 	
 	}
 	
-	public void update(Okulkademe okulkademe) throws Exception{
+	public void update(Okul okul) throws Exception{
 		
-		getMapper().update(okulkademe);
+		getMapper().update(okul);
 		
 		
 	} 
 	
-	public void delete(Okulkademe okulkademe)
+	public void delete(Okul okul)
 	{
-		getMapper().delete(okulkademe);
+		getMapper().delete(okul);
 	
 	}
 	
-	public ArrayList<Okulkademe> getListOfOkulkademe(){
+	public ArrayList<Okul> getListOfOkul(){
 		
 		
-		return getMapper().getListOfOkulkademe();		
+		return getMapper().getListOfOkul();		
 		
 	}
 	
-    public Okulkademe getOkulkademeByOkul(Okul okul){
+    public Okul getOkulByKod(int kod){
 		
 		
-		return getMapper().getOkulkademeByOkul(okul);
+		return getMapper().getOkulByKod(kod);
 		
 	}
     
 
-    public Okulkademe getOkulkademeByKademe(Kademe kademe){
+    public Okul getOkulByAd(String ad){
 		
 		
-		return getMapper().getOkulkademeByKademe(kademe);
+		return getMapper().getOkulByAd(ad);
 		
 	}
     
