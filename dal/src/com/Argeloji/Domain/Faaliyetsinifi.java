@@ -1,7 +1,6 @@
 package com.Argeloji.Domain;
-
 // default package
-// Generated Mar 18, 2013 10:44:04 AM by Hibernate Tools 3.4.0.CR1
+// Generated 01.Nis.2013 21:40:36 by Hibernate Tools 4.0.0
 
 import java.util.Date;
 
@@ -10,7 +9,7 @@ import java.util.Date;
  */
 public class Faaliyetsinifi implements java.io.Serializable {
 
-	private FaaliyetsinifiId id;
+	private int kod;
 	private Altyapi altyapi;
 	private Date giristarih;
 	private Date cikistarih;
@@ -21,10 +20,9 @@ public class Faaliyetsinifi implements java.io.Serializable {
 	public Faaliyetsinifi() {
 	}
 
-	public Faaliyetsinifi(FaaliyetsinifiId id, Altyapi altyapi,
-			Date giristarih, Date cikistarih, String tip, String ad,
-			int kapasite) {
-		this.id = id;
+	public Faaliyetsinifi(int kod, Altyapi altyapi, Date giristarih,
+			Date cikistarih, String tip, String ad, int kapasite) {
+		this.kod = kod;
 		this.altyapi = altyapi;
 		this.giristarih = giristarih;
 		this.cikistarih = cikistarih;
@@ -33,12 +31,12 @@ public class Faaliyetsinifi implements java.io.Serializable {
 		this.kapasite = kapasite;
 	}
 
-	public FaaliyetsinifiId getId() {
-		return this.id;
+	public int getKod() {
+		return this.kod;
 	}
 
-	public void setId(FaaliyetsinifiId id) {
-		this.id = id;
+	public void setKod(int kod) {
+		this.kod = kod;
 	}
 
 	public Altyapi getAltyapi() {
