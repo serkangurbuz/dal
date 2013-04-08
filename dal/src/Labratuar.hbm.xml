@@ -1,29 +1,29 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
-"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+                                   "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <!-- Generated 01.Nis.2013 21:40:37 by Hibernate Tools 4.0.0 -->
 <hibernate-mapping>
-    <class name="Labratuar" table="labratuar" schema="public">
-        <id name="kod" type="int">
-            <column name="kod" />
-            <generator class="sequence">
-   			<param name="sequence">labratuar_kod_seq</param>
-   			</generator>
-        </id>
-        <many-to-one name="altyapi" class="Altyapi" fetch="select">
-            <column name="altyapi_kod" not-null="true" />
-        </many-to-one>
-        <property name="cikistarihi" type="date">
-            <column name="cikistarihi" length="13" not-null="true" />
-        </property>
-        <property name="giristarihi" type="date">
-            <column name="giristarihi" length="13" not-null="true" />
-        </property>
-        <property name="kapasite" type="int">
-            <column name="kapasite" not-null="true" />
-        </property>
-        <property name="labadi" type="string">
-            <column name="labadi" not-null="true" />
-        </property>
-    </class>
+ <class name="com.Argeloji.Domain.Labratuar" schema="public" table="labratuar">
+  <id name="kod" type="int">
+   <column name="kod"/>
+   <generator class="sequence">
+    <param name="sequence">labratuar_kod_seq</param>
+   </generator>
+  </id>
+  <many-to-one class="com.Argeloji.Domain.Altyapi" fetch="select" name="altyapi">
+   <column name="altyapi_kod" not-null="true"/>
+  </many-to-one>
+  <property generated="never" lazy="false" name="cikistarihi" type="date">
+   <column length="13" name="cikistarihi" not-null="true"/>
+  </property>
+  <property generated="never" lazy="false" name="giristarihi" type="date">
+   <column length="13" name="giristarihi" not-null="true"/>
+  </property>
+  <property generated="never" lazy="false" name="kapasite" type="int">
+   <column name="kapasite" not-null="true"/>
+  </property>
+  <property generated="never" lazy="false" name="labadi" type="string">
+   <column name="labadi" not-null="true"/>
+  </property>
+ </class>
 </hibernate-mapping>

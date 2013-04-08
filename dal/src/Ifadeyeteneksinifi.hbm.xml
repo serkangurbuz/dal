@@ -1,29 +1,29 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
-"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+                                   "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <!-- Generated 01.Nis.2013 21:40:37 by Hibernate Tools 4.0.0 -->
 <hibernate-mapping>
-    <class name="Ifadeyeteneksinifi" table="ifadeyeteneksinifi" schema="public">
-        <id name="kod" type="int">
-            <column name="kod" />
-            <generator class="sequence">
-   			<param name="sequence">ifadeyeteneksinifi_kod_seq</param>
-   			</generator>
-        </id>
-        <many-to-one name="altyapi" class="Altyapi" fetch="select">
-            <column name="altyapi_kod" not-null="true" />
-        </many-to-one>
-        <property name="klupadi" type="string">
-            <column name="klupadi" not-null="true" />
-        </property>
-        <property name="cikistarih" type="date">
-            <column name="cikistarih" length="13" not-null="true" />
-        </property>
-        <property name="giristarih" type="date">
-            <column name="giristarih" length="13" not-null="true" />
-        </property>
-        <property name="ad" type="string">
-            <column name="ad" not-null="true" />
-        </property>
-    </class>
+ <class name="com.Argeloji.Domain.Ifadeyeteneksinifi" schema="public" table="ifadeyeteneksinifi">
+  <id name="kod" type="int">
+   <column name="kod"/>
+   <generator class="sequence">
+    <param name="sequence">ifadeyeteneksinifi_kod_seq</param>
+   </generator>
+  </id>
+  <many-to-one class="com.Argeloji.Domain.Altyapi" fetch="select" name="altyapi">
+   <column name="altyapi_kod" not-null="true"/>
+  </many-to-one>
+  <property generated="never" lazy="false" name="klupadi" type="string">
+   <column name="klupadi" not-null="true"/>
+  </property>
+  <property generated="never" lazy="false" name="cikistarih" type="date">
+   <column length="13" name="cikistarih" not-null="true"/>
+  </property>
+  <property generated="never" lazy="false" name="giristarih" type="date">
+   <column length="13" name="giristarih" not-null="true"/>
+  </property>
+  <property generated="never" lazy="false" name="ad" type="string">
+   <column name="ad" not-null="true"/>
+  </property>
+ </class>
 </hibernate-mapping>

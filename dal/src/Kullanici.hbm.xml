@@ -1,47 +1,49 @@
 <?xml version="1.0"?>
 <!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
-"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+                                   "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
 <!-- Generated 01.Nis.2013 21:40:37 by Hibernate Tools 4.0.0 -->
 <hibernate-mapping>
-    <class name="Kullanici" table="kullanici" schema="public">
-        <id name="kod" type="long">
-            <column name="kod" />
-            <generator class="sequence">
-   			<param name="sequence">kullanici_kod_seq</param>
-   			</generator>
-        </id>
-        <many-to-one name="adres" class="Adres" fetch="select">
-            <column name="adres_kod" not-null="true" />
-        </many-to-one>
-        <property name="ad" type="string">
-            <column name="ad" not-null="true" />
-        </property>
-        <property name="soyad" type="string">
-            <column name="soyad" not-null="true" />
-        </property>
-        <property name="telefon" type="string">
-            <column name="telefon" not-null="true" />
-        </property>
-        <property name="giristarih" type="date">
-            <column name="giristarih" length="13" not-null="true" />
-        </property>
-        <property name="email" type="string">
-            <column name="email" not-null="true" />
-        </property>
-        <set name="uygulamaKullanicis" table="uygulama_kullanici" inverse="true" lazy="true" fetch="select">
-            <key>
-                <column name="kullanici_kod" not-null="true" />
-            </key>
-            <one-to-many class="UygulamaKullanici" />
-        </set>
-        <one-to-one name="personel" class="Personel"></one-to-one>
-        <one-to-one name="veli" class="Veli"></one-to-one>
-        <one-to-one name="ogrenci" class="Ogrenci"></one-to-one>
-        <set name="useridmappers" table="useridmapper" inverse="true" lazy="true" fetch="select">
-            <key>
-                <column name="externaluserid" not-null="true" />
-            </key>
-            <one-to-many class="Useridmapper" />
-        </set>
-    </class>
+ <class name="com.Argeloji.Domain.Kullanici" schema="public" table="kullanici">
+  <id name="kod" type="long">
+   <column name="kod"/>
+   <generator class="sequence">
+    <param name="sequence">kullanici_kod_seq</param>
+   </generator>
+  </id>
+  <many-to-one class="com.Argeloji.Domain.Adres" fetch="select" name="adres">
+   <column name="adres_kod" not-null="true"/>
+  </many-to-one>
+  <property generated="never" lazy="false" name="ad" type="string">
+   <column name="ad" not-null="true"/>
+  </property>
+  <property generated="never" lazy="false" name="soyad" type="string">
+   <column name="soyad" not-null="true"/>
+  </property>
+  <property generated="never" lazy="false" name="telefon" type="string">
+   <column name="telefon" not-null="true"/>
+  </property>
+  <property generated="never" lazy="false" name="giristarih" type="date">
+   <column length="13" name="giristarih" not-null="true"/>
+  </property>
+  <property generated="never" lazy="false" name="email" type="string">
+   <column name="email" not-null="true"/>
+  </property>
+  <set fetch="select" inverse="true" lazy="true"
+   name="uygulamaKullanicis" sort="unsorted" table="uygulama_kullanici">
+   <key>
+    <column name="kullanici_kod" not-null="true"/>
+   </key>
+   <one-to-many class="com.Argeloji.Domain.UygulamaKullanici"/>
+  </set>
+  <one-to-one class="com.Argeloji.Domain.Personel" name="personel"/>
+  <one-to-one class="com.Argeloji.Domain.Veli" name="veli"/>
+  <one-to-one class="com.Argeloji.Domain.Ogrenci" name="ogrenci"/>
+  <set fetch="select" inverse="true" lazy="true" name="useridmappers"
+   sort="unsorted" table="useridmapper">
+   <key>
+    <column name="externaluserid" not-null="true"/>
+   </key>
+   <one-to-many class="com.Argeloji.Domain.Useridmapper"/>
+  </set>
+ </class>
 </hibernate-mapping>
