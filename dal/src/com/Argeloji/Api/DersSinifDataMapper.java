@@ -30,6 +30,6 @@ public interface DersSinifDataMapper {
 	
 	ArrayList<DersSinif> getDersSinifByDersAd(String ders_ad);
 	
-	ArrayList<DersSinif> getDersSinifByDersKod(String ders_ad);
+	ArrayList<DersSinif> getDersSinifBySinifAd(String ders_ad);
 	
 }
