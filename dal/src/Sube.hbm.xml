@@ -6,7 +6,9 @@
  <class name="com.Argeloji.Domain.Sube" schema="public" table="sube">
   <id name="kod" type="int">
    <column name="kod"/>
-   <generator class="assigned"/>
+   <generator class="sequence">
+   			<param name="sequence">sube_kod_seq</param>
+   	</generator>
   </id>
   <many-to-one class="com.Argeloji.Domain.Sinif" fetch="select" name="sinif">
    <column name="sinif_kod" not-null="true"/>

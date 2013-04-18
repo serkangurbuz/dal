@@ -6,7 +6,9 @@
  <class name="com.Argeloji.Domain.Altyapi" schema="public" table="altyapi">
   <id name="kod" type="int">
    <column name="kod"/>
-   <generator class="assigned"/>
+  <generator class="sequence">
+   			<param name="sequence">altyapi_kod_seq</param>
+   			</generator>
   </id>
   <property generated="never" lazy="false" name="giristarihi" type="date">
    <column length="13" name="giristarihi" not-null="true"/>

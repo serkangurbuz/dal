@@ -10,7 +10,7 @@ import java.util.Date;
  */
 public class Ifadeyeteneksinifi implements java.io.Serializable {
 
-	private IfadeyeteneksinifiId id;
+	private int kod;
 	private Altyapi altyapi;
 	private String klupadi;
 	private Date cikistarih;
@@ -20,9 +20,9 @@ public class Ifadeyeteneksinifi implements java.io.Serializable {
 	public Ifadeyeteneksinifi() {
 	}
 
-	public Ifadeyeteneksinifi(IfadeyeteneksinifiId id, Altyapi altyapi,
-			String klupadi, Date cikistarih, Date giristarih, String ad) {
-		this.id = id;
+	public Ifadeyeteneksinifi(int kod, Altyapi altyapi, String klupadi,
+			Date cikistarih, Date giristarih, String ad) {
+		this.kod = kod;
 		this.altyapi = altyapi;
 		this.klupadi = klupadi;
 		this.cikistarih = cikistarih;
@@ -30,12 +30,12 @@ public class Ifadeyeteneksinifi implements java.io.Serializable {
 		this.ad = ad;
 	}
 
-	public IfadeyeteneksinifiId getId() {
-		return this.id;
+	public int getKod() {
+		return this.kod;
 	}
 
-	public void setId(IfadeyeteneksinifiId id) {
-		this.id = id;
+	public void setKod(int kod) {
+		this.kod = kod;
 	}
 
 	public Altyapi getAltyapi() {

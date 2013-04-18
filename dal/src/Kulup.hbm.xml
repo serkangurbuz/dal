@@ -6,7 +6,9 @@
     <class name="com.Argeloji.Domain.Kulup" table="kulup" schema="public">
         <id name="kod" type="int">
             <column name="kod" />
-            <generator class="assigned" />
+            <generator class="sequence">
+   			<param name="sequence">adres_kod_seq</param>
+   			</generator>
         </id>
         <many-to-one name="kademe" class="com.Argeloji.Domain.Kademe" fetch="select">
             <column name="kademe_kod" not-null="true" />

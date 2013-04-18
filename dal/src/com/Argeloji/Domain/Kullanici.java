@@ -1,7 +1,6 @@
 package com.Argeloji.Domain;
-
 // default package
-// Generated Mar 18, 2013 10:44:04 AM by Hibernate Tools 3.4.0.CR1
+// Generated 01.Nis.2013 21:40:36 by Hibernate Tools 4.0.0
 
 import java.util.Date;
 import java.util.HashSet;
@@ -16,20 +15,20 @@ public class Kullanici implements java.io.Serializable {
 	private Adres adres;
 	private String ad;
 	private String soyad;
-	private int telefon;
+	private String telefon;
 	private Date giristarih;
 	private String email;
-	private Set useridmappers = new HashSet(0);
 	private Set uygulamaKullanicis = new HashSet(0);
-	private Set ogrencis = new HashSet(0);
-	private Set velis = new HashSet(0);
-	private Set personels = new HashSet(0);
+	private Personel personel;
+	private Veli veli;
+	private Ogrenci ogrenci;
+	private Set useridmappers = new HashSet(0);
 
 	public Kullanici() {
 	}
 
 	public Kullanici(long kod, Adres adres, String ad, String soyad,
-			int telefon, Date giristarih, String email) {
+			String telefon, Date giristarih, String email) {
 		this.kod = kod;
 		this.adres = adres;
 		this.ad = ad;
@@ -40,8 +39,9 @@ public class Kullanici implements java.io.Serializable {
 	}
 
 	public Kullanici(long kod, Adres adres, String ad, String soyad,
-			int telefon, Date giristarih, String email, Set useridmappers,
-			Set uygulamaKullanicis, Set ogrencis, Set velis, Set personels) {
+			String telefon, Date giristarih, String email,
+			Set uygulamaKullanicis, Personel personel, Veli veli,
+			Ogrenci ogrenci, Set useridmappers) {
 		this.kod = kod;
 		this.adres = adres;
 		this.ad = ad;
@@ -49,11 +49,11 @@ public class Kullanici implements java.io.Serializable {
 		this.telefon = telefon;
 		this.giristarih = giristarih;
 		this.email = email;
-		this.useridmappers = useridmappers;
 		this.uygulamaKullanicis = uygulamaKullanicis;
-		this.ogrencis = ogrencis;
-		this.velis = velis;
-		this.personels = personels;
+		this.personel = personel;
+		this.veli = veli;
+		this.ogrenci = ogrenci;
+		this.useridmappers = useridmappers;
 	}
 
 	public long getKod() {
@@ -88,11 +88,11 @@ public class Kullanici implements java.io.Serializable {
 		this.soyad = soyad;
 	}
 
-	public int getTelefon() {
+	public String getTelefon() {
 		return this.telefon;
 	}
 
-	public void setTelefon(int telefon) {
+	public void setTelefon(String telefon) {
 		this.telefon = telefon;
 	}
 
@@ -112,14 +112,6 @@ public class Kullanici implements java.io.Serializable {
 		this.email = email;
 	}
 
-	public Set getUseridmappers() {
-		return this.useridmappers;
-	}
-
-	public void setUseridmappers(Set useridmappers) {
-		this.useridmappers = useridmappers;
-	}
-
 	public Set getUygulamaKullanicis() {
 		return this.uygulamaKullanicis;
 	}
@@ -128,28 +120,36 @@ public class Kullanici implements java.io.Serializable {
 		this.uygulamaKullanicis = uygulamaKullanicis;
 	}
 
-	public Set getOgrencis() {
-		return this.ogrencis;
+	public Personel getPersonel() {
+		return this.personel;
 	}
 
-	public void setOgrencis(Set ogrencis) {
-		this.ogrencis = ogrencis;
+	public void setPersonel(Personel personel) {
+		this.personel = personel;
 	}
 
-	public Set getVelis() {
-		return this.velis;
+	public Veli getVeli() {
+		return this.veli;
 	}
 
-	public void setVelis(Set velis) {
-		this.velis = velis;
+	public void setVeli(Veli veli) {
+		this.veli = veli;
 	}
 
-	public Set getPersonels() {
-		return this.personels;
+	public Ogrenci getOgrenci() {
+		return this.ogrenci;
 	}
 
-	public void setPersonels(Set personels) {
-		this.personels = personels;
+	public void setOgrenci(Ogrenci ogrenci) {
+		this.ogrenci = ogrenci;
+	}
+
+	public Set getUseridmappers() {
+		return this.useridmappers;
+	}
+
+	public void setUseridmappers(Set useridmappers) {
+		this.useridmappers = useridmappers;
 	}
 
 }

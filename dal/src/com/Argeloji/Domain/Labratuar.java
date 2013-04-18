@@ -1,7 +1,6 @@
 package com.Argeloji.Domain;
-
 // default package
-// Generated Mar 18, 2013 10:44:04 AM by Hibernate Tools 3.4.0.CR1
+// Generated 01.Nis.2013 21:40:36 by Hibernate Tools 4.0.0
 
 import java.util.Date;
 
@@ -10,7 +9,7 @@ import java.util.Date;
  */
 public class Labratuar implements java.io.Serializable {
 
-	private LabratuarId id;
+	private int kod;
 	private Altyapi altyapi;
 	private Date cikistarihi;
 	private Date giristarihi;
@@ -20,9 +19,9 @@ public class Labratuar implements java.io.Serializable {
 	public Labratuar() {
 	}
 
-	public Labratuar(LabratuarId id, Altyapi altyapi, Date cikistarihi,
+	public Labratuar(int kod, Altyapi altyapi, Date cikistarihi,
 			Date giristarihi, int kapasite, String labadi) {
-		this.id = id;
+		this.kod = kod;
 		this.altyapi = altyapi;
 		this.cikistarihi = cikistarihi;
 		this.giristarihi = giristarihi;
@@ -30,12 +29,12 @@ public class Labratuar implements java.io.Serializable {
 		this.labadi = labadi;
 	}
 
-	public LabratuarId getId() {
-		return this.id;
+	public int getKod() {
+		return this.kod;
 	}
 
-	public void setId(LabratuarId id) {
-		this.id = id;
+	public void setKod(int kod) {
+		this.kod = kod;
 	}
 
 	public Altyapi getAltyapi() {

@@ -1,7 +1,6 @@
 package com.Argeloji.Domain;
-
 // default package
-// Generated Mar 18, 2013 10:44:04 AM by Hibernate Tools 3.4.0.CR1
+// Generated 01.Nis.2013 21:40:36 by Hibernate Tools 4.0.0
 
 import java.util.Date;
 
@@ -10,7 +9,7 @@ import java.util.Date;
  */
 public class Yardimcioda implements java.io.Serializable {
 
-	private YardimciodaId id;
+	private int kod;
 	private Altyapi altyapi;
 	private String tip;
 	private int kapasite;
@@ -21,9 +20,9 @@ public class Yardimcioda implements java.io.Serializable {
 	public Yardimcioda() {
 	}
 
-	public Yardimcioda(YardimciodaId id, Altyapi altyapi, String tip,
-			int kapasite, Date giristarih, Date cikistarih, String ad) {
-		this.id = id;
+	public Yardimcioda(int kod, Altyapi altyapi, String tip, int kapasite,
+			Date giristarih, Date cikistarih, String ad) {
+		this.kod = kod;
 		this.altyapi = altyapi;
 		this.tip = tip;
 		this.kapasite = kapasite;
@@ -32,12 +31,12 @@ public class Yardimcioda implements java.io.Serializable {
 		this.ad = ad;
 	}
 
-	public YardimciodaId getId() {
-		return this.id;
+	public int getKod() {
+		return this.kod;
 	}
 
-	public void setId(YardimciodaId id) {
-		this.id = id;
+	public void setKod(int kod) {
+		this.kod = kod;
 	}
 
 	public Altyapi getAltyapi() {
