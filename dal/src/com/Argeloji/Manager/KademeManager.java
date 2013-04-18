@@ -41,9 +41,7 @@ private final DMRegistry registry;
 		
 	} 
 	
-	
-
-	
+		
 	public void delete(Kademe kademe)
 	{
 		getMapper().deleteKademe(kademe);
@@ -69,13 +67,7 @@ private final DMRegistry registry;
 		
 		return getMapper().getKademeByAd(kademe_ad);
 		
-	}
-    
-    
-    
-    
-    
-    
+	}   
 	
 	
 }
